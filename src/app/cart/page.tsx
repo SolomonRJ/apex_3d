@@ -4,9 +4,10 @@ import { useCart } from "@/context/CartContext";
 import { useUser } from "@clerk/nextjs";
 import { Plus, Minus, Trash2, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CartPage() {
-    const { items, updateQuantity, removeFromCart, total } = useCart();
+    const { items, updateQuantity, removeFromCart } = useCart();
     const { user, isLoaded } = useUser();
 
     const handleWhatsAppOrder = () => {
@@ -46,7 +47,7 @@ export default function CartPage() {
                             <div key={`${item.id}-${item.material}`} className="flex flex-col sm:flex-row items-center gap-6 p-6 bg-dark-900 border border-dark-800 rounded-xl shadow-lg relative glow-hover">
                                 <div className="w-24 h-24 sm:w-32 sm:h-32 bg-dark-800 rounded-md overflow-hidden shrink-0">
                                     {item.image ? (
-                                        <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                        <Image src={item.image} alt={item.name} width={128} height={128} className="w-full h-full object-cover" />
                                     ) : (
                                         <div className="w-full h-full flex items-center justify-center text-dark-500">Image</div>
                                     )}

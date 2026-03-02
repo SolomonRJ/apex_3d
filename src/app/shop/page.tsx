@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 import { ShoppingCart } from "lucide-react";
+import Image from "next/image";
 
 const products = [
     { id: "1", name: "Dragon Statue", material: "Resin", price: 1500, image: "/images/1.png" },
@@ -53,9 +54,11 @@ export default function ShopPage() {
                         className="bg-dark-900 border border-dark-800 hover:border-gold-400/50 rounded-xl overflow-hidden group transition-all duration-300 hover:shadow-glow-gold hover:-translate-y-1 flex flex-col"
                     >
                         <div className="relative h-64 w-full overflow-hidden bg-dark-800 shrink-0">
-                            <img
+                            <Image
                                 src={item.image}
                                 alt={item.name}
+                                width={500}
+                                height={300}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100"
                             />
                             <div className="absolute top-3 left-3 px-3 py-1 bg-dark-950/80 backdrop-blur-sm border border-gold-400/30 rounded text-xs text-gold-400 font-medium">
